@@ -1,13 +1,16 @@
-As a User, I want to buy books within my shopping cart
-As a User, I want to download my purchased books at any time
-As a User, I want my books available in a variety of formats
-As a User, I want to add books to a cart for bulk purchase
-As a User, I want to leave public reviews and ratings for books I've purchased
-As a User, I want to view public reviews and ratings from other users
-As a User, I want to search by Book name
-As a User, I want to search by Book Genre
-As a User, I want to search for New Releases
-As a User, I want to search by Most Popular
-As a User, I want to view my past purchases
-As a User, I want to access a Library of my books purchased
+As a Customer, I want to search by Book name
+As a Customer, I want to search by Book Genre
+As a Customer, I want to search for New Releases
+As a Customer, I want to search by Most Popular
+As a Customer, I want to add books to a cart for bulk purchase
+As a Customer, I want to buy books within my shopping cart
+As a Customer, I want to access a Library of my books purchased
+As a Customer, I want to download my purchased books at any time
+As a Customer, I want to view my past purchases
+As a Customer, I want to leave public reviews and ratings for books I've purchased
+As a Customer, I want to view public reviews and ratings from other Customers
 
+
+As the Owner, I don't want all transactions to be non-refundable.
+As the Owner, I want to see a breakdown of all sales.
+As the Owner, I want to be able filter the sales breakdown.

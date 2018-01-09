@@ -1,0 +1,12 @@
+Book
+Fiction/Nonfiction
+Subject
+Genre
+SubGenre
+Author
+ISBN-13
+Publisher
+Publication Date
+Pages
+Price
+Age
