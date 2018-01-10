@@ -1,12 +1,60 @@
-Book
-Fiction/Nonfiction
-Subject
-Genre
-SubGenre
-Author
-ISBN-13
-Publisher
-Publication Date
-Pages
-Price
-Age
+PurchasedBooks
+  <Customer>-<Book>
+  Date Purchased
+  Purchased Price
+
+CartContents [Temporary]
+  <Customer>
+  <Book>
+  (Final Price)
+
+Book-Genre
+  <Book>-<Genre>
+  
+:Genres
+  
+Books
+  Book Cover
+  Title
+  <Author>
+  Description
+  Publication Date
+  (Rating)
+  List Price
+  Copies Sold
+  Available?
+  
+Authors
+  First Name
+  Last Name
+
+Customers
+  Username
+  Email
+  Password
+  
+:Ratings
+
+Reviews
+  <Customer>
+  <Rating>
+  Review
+  Date Added
+  
+HelpfulReviews
+  <Customer>-<Review>
+  
+FlaggedReviews
+  <Customer>-<Review>
+  
+:Flags
+
+CheckedReviews
+  <Employee>-<Review>
+  
+Sales
+  <Book>
+  Sale Amount
+  Start Date
+  End Date
+  

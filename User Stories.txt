@@ -5,22 +5,22 @@ As a Customer, I want to search for New Releases
 As a Customer, I want to search by Ratings
 As a Customer, I want to search by Most Popular
 As a Costomer, I want to search for books using multiple filters
-As a Customer, I want to add books to a cart for bulk purchase
+As a Customer, I want to add books to a cart for many purchases
 As a Customer, I want to buy books within my shopping cart
 As a Customer, I want to access a Library of my books purchased
 As a Customer, I want to download my purchased books at any time
 As a Customer, I want to view my past purchases
 As a Customer, I want to leave public reviews and ratings for books I've purchased
 As a Customer, I want to view public reviews and ratings from other Customers
-As a Customer, I want to mark a review as being helpful or unhelpful
+As a Customer, I want to mark a review as being helpful or flag reviews
 As a Customer, I want to sort through reviews based off time or how helpful other Customers found the review to be
 
 
-As an Employee, I want all transactions to be non-refundable.
-As an Employee, I want to see how many of each book has been sold.
-As an Employee, I want to see a breakdown of all sales.
-As an Employee, I want to filter the sales breakdown.
-As an Employee, I want to adjust products' costs with temporary sales.
-As an Employee, I want to delete reviews that are considered innapropriate or spam
-As an Employee, I want to add new books that I will offer
-As an Employee, I want to remove books that are no longer available
+As a Seller, I want all transactions to be non-refundable.
+As a Seller, I want to see how many of each book has been sold.
+As a Seller, I want to see a breakdown of all sales.
+As a Seller, I want to filter the sales breakdown.
+As a Seller, I want to adjust products' costs with temporary sales.
+As a Seller, I want to delete reviews that are considered innapropriate or spam
+As a Seller, I want to add new books that I will offer
+As a Seller, I want to remove books that are no longer available
