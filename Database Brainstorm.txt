@@ -3,10 +3,9 @@ PurchasedBooks
   Date Purchased
   Purchased Price
 
-CartContents [Temporary]
+Cart [DELETEABLE]
   <Customer>
   <Book>
-  (Final Price)
 
 Book-Genre
   <Book>-<Genre>
@@ -14,7 +13,6 @@ Book-Genre
 :Genres
   
 Books
-  Book Cover
   Title
   <Author>
   Description
@@ -22,7 +20,6 @@ Books
   (Rating)
   List Price
   Copies Sold
-  Available?
   
 Authors
   First Name
@@ -33,28 +30,28 @@ Customers
   Email
   Password
   
-:Ratings
+:Ratings (Stars)
+  5,4,3,2,1
 
-Reviews
+Reviews [DELETEABLE]
   <Customer>
+  <Book>
   <Rating>
   Review
   Date Added
   
-HelpfulReviews
+FlaggedReviews [DELETEABLE]
   <Customer>-<Review>
-  
-FlaggedReviews
-  <Customer>-<Review>
+  <Flag>
   
 :Flags
-
-CheckedReviews
-  <Employee>-<Review>
+  UNFLAGGED
+  INNAPROPRIATE
+  SPAM
+  HELPFUL
   
-Sales
+Discounts
   <Book>
-  Sale Amount
+  Discount
   Start Date
   End Date
-  
