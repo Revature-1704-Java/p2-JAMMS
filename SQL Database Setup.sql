@@ -1,0 +1,258 @@
+/*******************
+*RESET THE DATABASE*
+*******************/
+DROP TABLE PurchasedBooks;
+DROP TABLE Carts;
+DROP TABLE Book_Genre;
+DROP TABLE Genres;
+DROP TABLE Discounts;
+DROP TABLE Books;
+DROP TABLE Authors;
+DROP TABLE FlaggedReviews;
+DROP TABLE Flags;
+DROP TABLE Reviews;
+DROP TABLE Ratings;
+DROP TABLE Customers;
+
+/***********************
+*Create Database Tables*
+***********************/
+CREATE TABLE PurchasedBooks
+(
+	ID INT UNIQUE NOT NULL,
+  Customer INT NOT NULL,
+  Book INT NOT NULL,
+  Price NUMBER(5,2) NOT NULL,
+	CONTSTRAINT PK_PurchasedBooks PRIMARY KEY (ID)
+);
+
+CREATE TABLE Carts
+(
+	ID INT UNIQUE NOT NULL,
+  Customer INT NOT NULL,
+  Book INT NOT NULL,
+	CONTSTRAINT PK_Carts PRIMARY KEY (ID)
+);
+
+CREATE TABLE Book_Genre
+(
+	ID INT UNIQUE NOT NULL,
+  Book INT NOT NULL,
+  Genre INT NOT NULL,
+	CONTSTRAINT PK_Book_Genre PRIMARY KEY (ID)
+);
+
+CREATE TABLE Genres
+(
+	ID INT UNIQUE NOT NULL,
+  Genre VARCHAR2(35) UNIQUE NOT NULL,
+	CONTSTRAINT PK_Genres PRIMARY KEY (ID)
+);
+
+CREATE TABLE Discounts
+(
+	ID INT UNIQUE NOT NULL,
+  Book INT NOT NULL,
+  Discount NUMBER(5,2) NOT NULL,
+  StartDate DATE NOT NULL,
+  EndDate DATE NOT NULL,
+	CONTSTRAINT PK_Discounts PRIMARY KEY (ID)
+);
+
+CREATE TABLE Books
+(
+	ID INT UNIQUE NOT NULL,
+  Title VARCHAR2(160) NOT NULL,
+  Author INT NOT NULL,
+  Description VARCHAR2(160) NOT NULL,
+  Published DATE NOT NULL,
+  Price NUMBER(5,2) NOT NULL,
+	CONTSTRAINT PK_Books PRIMARY KEY (ID)
+);
+
+CREATE TABLE Authors
+(
+	ID INT UNIQUE NOT NULL,
+  FirstName VARCHAR2(35) NOT NULL,
+  LastName VARCHAR2(35) NOT NULL,
+	CONTSTRAINT PK_Authors PRIMARY KEY (ID)
+);
+
+CREATE TABLE FlaggedReviews
+(
+	ID INT UNIQUE NOT NULL,
+  Customer INT NOT NULL,
+  Review INT NOT NULL,
+  Flag INT NOT NULL,
+	CONTSTRAINT PK_FlaggedReviews PRIMARY KEY (ID)
+);
+
+CREATE TABLE Flags
+(
+	ID INT UNIQUE NOT NULL,
+  Flag VARCHAR2(20) UNIQUE NOT NULL,
+	CONTSTRAINT PK_Flags PRIMARY KEY (ID)
+);
+
+CREATE TABLE Reviews
+(
+	ID INT UNIQUE NOT NULL,
+  Customer INT NOT NULL,
+  Book INT NOT NULL,
+  DateAdded DATE NOT NULL,
+  Rating INT,
+  Review VARCHAR2(160),
+	CONTSTRAINT PK_Reviews PRIMARY KEY (ID)
+);
+
+CREATE TABLE 
+
+(
+	ID INT UNIQUE NOT NULL,
+  Rating INT UNIQUE NOT NULL,
+	CONTSTRAINT PK_Ratings PRIMARY KEY (ID)
+);
+
+CREATE TABLE Customers
+(
+	ID INT UNIQUE NOT NULL,
+  Username VARCHAR2(70) UNIQUE NOT NULL,
+  Email VARCHAR2(100) UNIQUE NOT NULL,
+  Password VARCHAR2(128) NOT NULL,
+	CONTSTRAINT PK_Customers PRIMARY KEY (ID)
+);
+
+/****************************
+*Add Foriegn Key Constraints*
+****************************/
+ALTER TABLE PurchasedBooks ADD CONSTRAINT FK_TblPB_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
+ALTER TABLE PurchasedBooks ADD CONSTRAINT FK_TblPB_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
+ALTER TABLE Carts ADD CONSTRAINT FK_TblCu_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
+ALTER TABLE Carts ADD CONSTRAINT FK_TblCu_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
+ALTER TABLE Book_Genre ADD CONSTRAINT FK_TblBG_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
+ALTER TABLE Book_Genre ADD CONSTRAINT FK_Tbl_BG_ColGe FOREIGN KEY (Genre) REFERENCES Genres (ID);
+ALTER TABLE Discounts ADD CONSTRAINT FK_TblDi_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
+ALTER TABLE Books ADD CONSTRAINT FK_TblBo_ColAu FOREIGN KEY (Author) REFERENCES Authors (ID);
+ALTER TABLE FlaggedReviews ADD CONSTRAINT FK_Tbl_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
+ALTER TABLE FlaggedReviews ADD CONSTRAINT FK_Tbl_ColRe FOREIGN KEY (Review) REFERENCES Reviews (ID);
+ALTER TABLE FlaggedReviews ADD CONSTRAINT FK_Tbl_ColFl FOREIGN KEY (Flag) REFERENCES Flags (ID);
+ALTER TABLE Reviews ADD CONSTRAINT FK_TblRe_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
+ALTER TABLE Reviews ADD CONSTRAINT FK_TblRe_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
+ALTER TABLE Reviews ADD CONSTRAINT FK_TblRe_ColRa FOREIGN KEY (Rating) REFERENCES Ratings (ID);
+
+
+/*************************
+*Add Reference Table Data*
+*************************/
+INSERT INTO Genres (ID,) VALUES (0,'NONFICTION');
+INSERT INTO Genres (ID,) VALUES (0,'SCIENCE_FICTION');
+INSERT INTO Genres (ID,) VALUES (0,'ACTION_AND_ADVENTURE');
+INSERT INTO Genres (ID,) VALUES (0,'MYSTERY');
+INSERT INTO Genres (ID,) VALUES (0,'HORROR');
+INSERT INTO Genres (ID,) VALUES (0,'SELF_HELP');
+
+INSERT INTO Flags (ID,Flag) VALUES (1,'UNFLAGGED');
+INSERT INTO Flags (ID,Flag) VALUES (2,'INNAPROPRIATE');
+INSERT INTO Flags (ID,Flag) VALUES (3,'SPAM');
+INSERT INTO Flags (ID,Flag) VALUES (4,'HELPFUL');
+
+INSERT INTO Ratings (ID,Rating) VALUES (1,1);
+INSERT INTO Ratings (ID,Rating) VALUES (2,2);
+INSERT INTO Ratings (ID,Rating) VALUES (3,3);
+INSERT INTO Ratings (ID,Rating) VALUES (4,4);
+INSERT INTO Ratings (ID,Rating) VALUES (5,5);
+
+/*****************************
+*Create Primary Key Sequences*
+*****************************/
+CREATE SEQUENCE seqPK_PurchasedBooks;
+CREATE SEQUENCE seqPK_Carts;
+CREATE SEQUENCE seqPK_Book_Genre;
+CREATE SEQUENCE seqPK_Discounts;
+CREATE SEQUENCE seqPK_Books;
+CREATE SEQUENCE seqPK_Authors;
+CREATE SEQUENCE seqPK_FlaggedReviews;
+CREATE SEQUENCE seqPK_Reviews;
+CREATE SEQUENCE seqPK_Customers;
+
+
+/****************
+*Create Triggers*
+****************/
+CREATE OR REPLACE TRIGGER inc_PurchasedBooks
+BEFORE INSERT ON PurchasedBooks
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_PurchasedBooks.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_Carts
+BEFORE INSERT ON Carts
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_Carts.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_Book_Genre
+BEFORE INSERT ON Book_Genre
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_Book_Genre.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_Discounts
+BEFORE INSERT ON Discounts
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_Discounts.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_Books
+BEFORE INSERT ON Books
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_Books.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_Authors
+BEFORE INSERT ON Authors
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_Authors.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_FlaggedReviews
+BEFORE INSERT ON FlaggedReviews
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_FlaggedReviews.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_Reviews
+BEFORE INSERT ON Reviews
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_Reviews.NEXTVAL;
+	END;
+/
+
+CREATE OR REPLACE TRIGGER inc_Customers
+BEFORE INSERT ON Customers
+FOR EACH ROW
+	BEGIN
+		:NEW.ID := seqPK_Customers.NEXTVAL;
+	END;
+/
+
+
+/********************
+*Add Mock Table Data*
+********************/
+INSERT INTO  (ID,) VALUES (1,);
