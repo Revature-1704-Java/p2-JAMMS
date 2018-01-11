@@ -122,6 +122,7 @@ CREATE TABLE Customers
 	CONTSTRAINT PK_Customers PRIMARY KEY (ID)
 );
 
+
 /****************************
 *Add Foriegn Key Constraints*
 ****************************/
@@ -161,6 +162,7 @@ INSERT INTO Ratings (ID,Rating) VALUES (2,2);
 INSERT INTO Ratings (ID,Rating) VALUES (3,3);
 INSERT INTO Ratings (ID,Rating) VALUES (4,4);
 INSERT INTO Ratings (ID,Rating) VALUES (5,5);
+
 
 /*****************************
 *Create Primary Key Sequences*
