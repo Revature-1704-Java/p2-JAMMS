@@ -1,4 +1,4 @@
-# p2-JAMM
+# p2-JAMMS
 Repository for Project 2
 
 This Project is being produced via a Team of 5:
