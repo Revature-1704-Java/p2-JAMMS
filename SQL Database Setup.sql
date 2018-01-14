@@ -123,11 +123,11 @@ CREATE TABLE Ratings
 
 CREATE TABLE Customers
 (
-	ID INT NOT NULL,
+	Customer_ID INT NOT NULL,
 	Username VARCHAR2(70) UNIQUE NOT NULL,
 	Email VARCHAR2(100) UNIQUE NOT NULL,
-	Password VARCHAR2(128) NOT NULL,
-	CONSTRAINT PK_Customers PRIMARY KEY (ID)
+	Passwd VARCHAR2(128) NOT NULL,
+	CONSTRAINT PK_Customers PRIMARY KEY (Customer_ID)
 );
 
 
@@ -257,7 +257,7 @@ CREATE OR REPLACE TRIGGER inc_Customers
 BEFORE INSERT ON Customers
 FOR EACH ROW
 	BEGIN
-		:NEW.ID := seqPK_Customers.NEXTVAL;
+		:NEW.Customer_ID := seqPK_Customers.NEXTVAL;
 	END;
 /
 
@@ -266,3 +266,6 @@ FOR EACH ROW
 *Add Mock Table Data*
 ********************/
 --INSERT INTO (ID,) VALUES (1,);
+
+INSERT INTO customers (username, email, passwd)
+VALUES('samy', 's@email.com', 'asd');

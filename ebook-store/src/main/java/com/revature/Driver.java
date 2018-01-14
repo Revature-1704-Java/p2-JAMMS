@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 import com.revature.model.Customer;
 import com.revature.repository.CustomerDAO;
 
-public class TestDriver {
+
+@Component
+public class Driver {
 
 	@Autowired
 	public CustomerDAO cdao;
@@ -17,8 +19,8 @@ public class TestDriver {
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ac = 
 				new AnnotationConfigApplicationContext("com.revature");
-		TestDriver driver = (TestDriver) ac.getBean("driver");
-		Customer c = driver.cdao.findCustomer(id);
+		Driver driver = (Driver) ac.getBean("driver");
+		Customer c = driver.cdao.findCustomer(1);
 		System.out.println(c.toString());
 
 	}
