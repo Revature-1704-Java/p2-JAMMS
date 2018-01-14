@@ -269,3 +269,5 @@ FOR EACH ROW
 
 INSERT INTO customers (username, email, passwd)
 VALUES('samy', 's@email.com', 'asd');
+INSERT INTO customers (username, email, passwd)
+VALUES('mike', 'm@email.com', 'asd');

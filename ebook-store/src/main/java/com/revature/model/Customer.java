@@ -19,6 +19,12 @@ public class Customer {
 		this.email = email;
 	}
 	
+	
+	public Customer() {
+		
+	}
+	
+	
 	@Id	
 	@Column(name="CUSTOMER_ID")
 	public Integer getId() {

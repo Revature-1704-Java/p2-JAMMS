@@ -20,7 +20,7 @@ public class Driver {
 		AnnotationConfigApplicationContext ac = 
 				new AnnotationConfigApplicationContext("com.revature");
 		Driver driver = (Driver) ac.getBean("driver");
-		Customer c = driver.cdao.findCustomer(1);
+		Customer c = driver.cdao.findCustomer(2);
 		System.out.println(c.toString());
 
 	}
