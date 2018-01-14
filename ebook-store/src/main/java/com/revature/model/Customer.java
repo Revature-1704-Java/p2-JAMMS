@@ -25,7 +25,9 @@ public class Customer {
 	}
 	
 	
-	@Id	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CustomersSequence")
+	@SequenceGenerator(allocationSize = 1, name = "CustomersSequence", sequenceName = "seqPK_Customers")
 	@Column(name="CUSTOMER_ID")
 	public Integer getId() {
 		return id;
