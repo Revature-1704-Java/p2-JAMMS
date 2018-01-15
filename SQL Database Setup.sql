@@ -1,7 +1,8 @@
 /*******************
 *RESET THE DATABASE*
 *******************/
-DROP TABLE PurchasedBooks;
+
+DROP TABLE Library;
 DROP TABLE Carts;
 DROP TABLE Book_Genre;
 DROP TABLE Genres;
@@ -13,7 +14,7 @@ DROP TABLE Authors;
 DROP TABLE Flags;
 DROP TABLE Ratings;
 DROP TABLE Customers;
-DROP SEQUENCE seqPK_PurchasedBooks;
+DROP SEQUENCE seqPK_Library;
 DROP SEQUENCE seqPK_Carts;
 DROP SEQUENCE seqPK_Book_Genre;
 DROP SEQUENCE seqPK_Discounts;
@@ -26,13 +27,13 @@ DROP SEQUENCE seqPK_Customers;
 /***********************
 *Create Database Tables*
 ***********************/
-CREATE TABLE PurchasedBooks
+CREATE TABLE Library
 (
 	ID INT NOT NULL,
 	Customer INT NOT NULL,
 	Book INT NOT NULL,
 	Price NUMBER(5,2) NOT NULL,
-	CONSTRAINT PK_PurchasedBooks PRIMARY KEY (ID)
+	CONSTRAINT PK_Library PRIMARY KEY (ID)
 );
 
 CREATE TABLE Carts
@@ -93,7 +94,7 @@ CREATE TABLE Books
 	ID INT NOT NULL,
 	Title VARCHAR2(160) NOT NULL,
 	Author INT NOT NULL,
-	Description VARCHAR2(160) NOT NULL,
+	Description VARCHAR2(160) NOT NULL, 
 	Published DATE NOT NULL,
 	Price NUMBER(5,2) NOT NULL,
 	CONSTRAINT PK_Books PRIMARY KEY (ID)
@@ -134,17 +135,17 @@ CREATE TABLE Customers
 /****************************
 *Add Foriegn Key Constraints*
 ****************************/
-ALTER TABLE PurchasedBooks ADD CONSTRAINT FK_TblPB_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
-ALTER TABLE PurchasedBooks ADD CONSTRAINT FK_TblPB_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
-ALTER TABLE Carts ADD CONSTRAINT FK_TblCu_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
+ALTER TABLE Library ADD CONSTRAINT FK_TblPB_ColCu FOREIGN KEY (Customer) REFERENCES Customers (Customer_ID);
+ALTER TABLE Library ADD CONSTRAINT FK_TblPB_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
+ALTER TABLE Carts ADD CONSTRAINT FK_TblCu_ColCu FOREIGN KEY (Customer) REFERENCES Customers (Customer_ID);
 ALTER TABLE Carts ADD CONSTRAINT FK_TblCu_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
 ALTER TABLE Book_Genre ADD CONSTRAINT FK_TblBG_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
 ALTER TABLE Book_Genre ADD CONSTRAINT FK_Tbl_BG_ColGe FOREIGN KEY (Genre) REFERENCES Genres (ID);
 ALTER TABLE Discounts ADD CONSTRAINT FK_TblDi_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
-ALTER TABLE FlaggedReviews ADD CONSTRAINT FK_Tbl_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
+ALTER TABLE FlaggedReviews ADD CONSTRAINT FK_Tbl_ColCu FOREIGN KEY (Customer) REFERENCES Customers (Customer_ID);
 ALTER TABLE FlaggedReviews ADD CONSTRAINT FK_Tbl_ColRe FOREIGN KEY (Review) REFERENCES Reviews (ID);
 ALTER TABLE FlaggedReviews ADD CONSTRAINT FK_Tbl_ColFl FOREIGN KEY (Flag) REFERENCES Flags (ID);
-ALTER TABLE Reviews ADD CONSTRAINT FK_TblRe_ColCu FOREIGN KEY (Customer) REFERENCES Customers (ID);
+ALTER TABLE Reviews ADD CONSTRAINT FK_TblRe_ColCu FOREIGN KEY (Customer) REFERENCES Customers (Customer_ID);
 ALTER TABLE Reviews ADD CONSTRAINT FK_TblRe_ColBo FOREIGN KEY (Book) REFERENCES Books (ID);
 ALTER TABLE Reviews ADD CONSTRAINT FK_TblRe_ColRa FOREIGN KEY (Rating) REFERENCES Ratings (ID);
 ALTER TABLE Books ADD CONSTRAINT FK_TblBo_ColAu FOREIGN KEY (Author) REFERENCES Authors (ID);
@@ -175,7 +176,7 @@ INSERT INTO Ratings (ID,Rating) VALUES (5,5);
 /*****************************
 *Create Primary Key Sequences*
 *****************************/
-CREATE SEQUENCE seqPK_PurchasedBooks;
+CREATE SEQUENCE seqPK_Library;
 CREATE SEQUENCE seqPK_Carts;
 CREATE SEQUENCE seqPK_Book_Genre;
 CREATE SEQUENCE seqPK_Discounts;
@@ -189,11 +190,11 @@ CREATE SEQUENCE seqPK_Customers;
 /****************
 *Create Triggers*
 ****************/
-CREATE OR REPLACE TRIGGER inc_PurchasedBooks
-BEFORE INSERT ON PurchasedBooks
+CREATE OR REPLACE TRIGGER inc_Library
+BEFORE INSERT ON Library
 FOR EACH ROW
 	BEGIN
-		:NEW.ID := seqPK_PurchasedBooks.NEXTVAL;
+		:NEW.ID := seqPK_Library.NEXTVAL;
 	END;
 /
 
