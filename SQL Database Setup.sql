@@ -288,8 +288,6 @@ VALUES('Harry Potter: Sorcers Stone', 1, 'Your a wizard harry!', '21-JAN-95',9.9
 INSERT INTO books (title, author, description, published, price)
 VALUES('Green Eggs and Ham', 2, 'Would you like some green eggs and ham?', '22-JAN-85',9.99);
 
-INSERT INTO books (title, author, description, published, price)
-VALUES('The Cat in the Hat', 2, 'The Cat is back!', '22-JAN-84',10.99);
 
 commit;
 

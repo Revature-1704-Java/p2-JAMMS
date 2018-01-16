@@ -22,9 +22,9 @@ public class BookDAO {
 	private SessionFactory sessionFactory;
 	
 	public Book findBook(Integer id) {
+		Book b = null;
 		Session session = sessionFactory.getCurrentSession();
-		
-		Book b =  (Book) session.get(Book.class, id);
+		b =  (Book) session.get(Book.class, id);
 		if(b == null) {
 			System.out.println("Book is null");
 		}

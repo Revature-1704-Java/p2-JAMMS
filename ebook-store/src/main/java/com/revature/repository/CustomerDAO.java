@@ -17,13 +17,13 @@ public class CustomerDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public Customer findCustomer(Integer id) {
+	public Customer findCustomer(String username) {
 		Session session = sessionFactory.getCurrentSession();
 		
-		Customer c =  (Customer) session.get(Customer.class, id);
+		Customer c =  (Customer) session.get(Customer.class, username);
 		if(c == null) {
 			System.out.println("Customer is null");
-		}
+		}	
 		return c;
 	}
 	
