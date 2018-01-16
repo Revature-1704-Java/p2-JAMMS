@@ -1,6 +1,7 @@
 package com.revature;
 
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
@@ -14,14 +15,22 @@ import com.revature.repository.BookDAO;
 import com.revature.repository.CustomerDAO;
 
 
-@Component
-public class Driver {
+@SpringBootApplication
+public class Application {
+	
+	
+	//@Autowired
+	//public BookDAO bdao;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 
-	@Autowired
+	/*
+	 * @Autowired
 	public CustomerDAO cdao;
 	
-	@Autowired
-	public BookDAO bdao;
+	
 	
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ac = 
@@ -34,11 +43,17 @@ public class Driver {
 		
 		Book b = driver.bdao.findBook(3);
 		System.out.println(b.toString());
+	 * 
+	 * 
+	}
+	 * 
+	 * 
+	 */
+	
 		//List<Book> books = driver.bdao.getAllBooks();
 		//for(int i = 0; i < books.size(); i++) {
 		//	System.out.println(books.get(i).toString());
 		//}
 		
 
-	}
 }
