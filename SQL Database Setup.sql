@@ -308,12 +308,12 @@ INSERT INTO Discounts (ID,Book,Discount,StartDate,EndDate) VALUES (2, 5, 14.99, 
 INSERT INTO Discounts (ID,Book,Discount,StartDate,EndDate) VALUES (3, 7, 20.00, TO_DATE('2018-01-01','yyyy-mm-dd'), TO_DATE('2018-02-01','yyyy-mm-dd'));
 
 
-INSERT INTO Customer (ID, Username, Email, Password) VALUES (1,'Customer','customer@email.com','Pass')
+INSERT INTO Customers (ID, Username, Email, Password) VALUES (1,'Customer','customer@email.com','Pass');
 
 
-INSERT INTO Reviews (ID,Customer,Book,DateAdded,Rating,Review) VALUES (1,5,1,TO_DATE('','yyyy-mm-dd'),5,'At Midnight All The Agents...');
-INSERT INTO Reviews (ID,Customer,Book,DateAdded,Rating,Review) VALUES (2,1,1,TO_DATE('','yyyy-mm-dd'),1,'$#!T Hole');
+INSERT INTO Reviews (ID,Customer,Book,DateAdded,Rating,Review) VALUES (1,1,5,TO_DATE('2018-01-16','yyyy-mm-dd'),5,'At Midnight All The Agents...');
+INSERT INTO Reviews (ID,Customer,Book,DateAdded,Rating,Review) VALUES (2,1,1,TO_DATE('2018-01-16','yyyy-mm-dd'),1,'$#!T Hole');
 
 
 INSERT INTO FlaggedReviews (ID, Customer, Review, Flag) VALUES (1,1,1,4);
-INSERT INTO FlaggedReviews (ID, Customer, Review, Flag) VALUES (1,1,2,2);
+INSERT INTO FlaggedReviews (ID, Customer, Review, Flag) VALUES (2,1,2,2);
