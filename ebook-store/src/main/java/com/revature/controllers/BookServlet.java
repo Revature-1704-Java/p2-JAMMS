@@ -13,7 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.model.Author;
 import com.revature.model.Book;
+import com.revature.repository.AuthorDAO;
 import com.revature.repository.BookDAO;
 
 @Controller
@@ -23,14 +25,28 @@ public class BookServlet{
        
 	@Autowired
 	private BookDAO bdao;
+	
+	@Autowired
+	private AuthorDAO adao;
     /**
      * @see HttpServlet#HttpServlet()
      */
-
+	@RequestMapping("/hello")
+	public String hello() {
+		return "Hello from Spring Boot!";
+	}
+	
 	@RequestMapping("/books")
 	public @ResponseBody List<Book> getBookList() {
 		
 		return bdao.getAllBooks();
+	}
+	
+	
+	@RequestMapping("/authors")
+	public @ResponseBody List<Author> getAuthorList() {
+		
+		return adao.getAllAuthors();
 	}
 	
 	

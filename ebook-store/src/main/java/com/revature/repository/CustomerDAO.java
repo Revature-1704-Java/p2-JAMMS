@@ -27,25 +27,6 @@ public class CustomerDAO {
 		return c;
 	}
 	
-	/*
-	 * 
-	 * public void insertCustomer() {
-		Session session = sessionFactory.getCurrentSession();
-		Customer c = new Customer();
-		c.setId(1);
-		c.setUsername("samy");
-		c.setEmail("s@email.com");
-		c.setPassword("asde");
-		
-		
-		int result = (int)session.save(c);
-		tx.commit();
-		session.close();
-		return result;
-	}
-	 * 
-	 * 
-	 * 
-	 */
+	
 	
 }

@@ -71,8 +71,8 @@ public class Book {
 		this.title = title;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "Author")
 	public Author getAuthor() {
 		return author;
 	}

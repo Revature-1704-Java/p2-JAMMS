@@ -12,14 +12,11 @@ import javax.persistence.Table;
 @Table(name = "Authors")
 public class Author {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AuthorsSequence")
-	@SequenceGenerator(allocationSize = 1, name = "AuthorsSequence", sequenceName = "seqPK_Authors")
-	@Column(name = "ID")
+	
 	private Integer id;
-	@Column(name = "FirstName")
+	
 	private String firstName;
-	@Column(name = "LastName")
+	
 	private String lastName;
 
 	public Author() {
@@ -34,6 +31,11 @@ public class Author {
 		this.lastName = lastName;
 	}
 
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AuthorsSequence")
+	@SequenceGenerator(allocationSize = 1, name = "AuthorsSequence", sequenceName = "seqPK_Authors")
+	@Column(name = "ID")
 	public Integer getId() {
 		return id;
 	}
@@ -42,6 +44,7 @@ public class Author {
 		this.id = id;
 	}
 
+	@Column(name = "FirstName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -50,6 +53,7 @@ public class Author {
 		this.firstName = firstName;
 	}
 
+	@Column(name = "LastName")
 	public String getLastName() {
 		return lastName;
 	}
