@@ -16,6 +16,7 @@ import com.revature.model.Cart;
 @Repository
 @Transactional
 public class Book_GenreDAO {
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	

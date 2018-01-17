@@ -28,8 +28,8 @@ public class Book_Genre {
 	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CustomersSequence")
-	@SequenceGenerator(allocationSize = 1, name = "CustomersSequence", sequenceName = "seqPK_Customers")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BookGenreSequence")
+	@SequenceGenerator(allocationSize = 1, name = "BookGenreSequence", sequenceName = "seqPK_Book_Genre")
 	@Column(name="ID")
 	public int getId() {
 		return id;
