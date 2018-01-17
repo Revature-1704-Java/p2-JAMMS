@@ -8,6 +8,11 @@
 	<name>ebook-store Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	<parent>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-parent</artifactId>
+    	<version>1.5.6.RELEASE</version>
+  	</parent>
 	<properties>
 		<aspectj.version>1.8.12</aspectj.version>
 		<hibernate.version>4.3.11.Final</hibernate.version>
@@ -19,6 +24,10 @@
 	<build>
 		<finalName>ebook-store</finalName>
 		<plugins>
+			<plugin>
+        		<groupId>org.springframework.boot</groupId>
+        		<artifactId>spring-boot-maven-plugin</artifactId>
+      		</plugin>
 			<plugin>
 				<artifactId>maven-comipler-plugin</artifactId>
 				<version>3.5.1</version>
@@ -46,7 +55,8 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
+			<version>5.2.9.Final</version>
+
 		</dependency>
 
 		<dependency>
@@ -54,6 +64,12 @@
 			<artifactId>hibernate-ehcache</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		
+		<dependency>
+      		<groupId>org.hibernate</groupId>
+      		<artifactId>hibernate-entitymanager</artifactId>
+      		<version>5.2.9.Final</version>
+    	</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -67,13 +83,28 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-		
+
+
+		<dependency>
+      		<groupId>org.springframework</groupId>
+      		<artifactId>spring-context</artifactId>
+      		<version>${spring.version}</version>
+    	</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
 		
+		
+		<dependency>
+      		<groupId>org.springframework</groupId>
+      		<artifactId>spring-orm</artifactId>
+      		<version>4.3.10.RELEASE</version>
+    	</dependency>
+    
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -85,5 +116,21 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		
+		<dependency>
+      		<groupId>com.fasterxml.jackson.core</groupId>
+      		<artifactId>jackson-databind</artifactId>
+      		<version>2.5.3</version>
+    	</dependency>
+		
+		<dependency>
+      		<groupId>org.springframework.boot</groupId>
+      		<artifactId>spring-boot-starter</artifactId>
+    	</dependency>
+    
+    	<dependency>
+      		<groupId>org.springframework.boot</groupId>
+      		<artifactId>spring-boot-starter-web</artifactId>
+    	</dependency>
 	</dependencies>
 </project>
