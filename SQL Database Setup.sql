@@ -94,7 +94,11 @@ CREATE TABLE Books
 	ID INT NOT NULL,
 	Title VARCHAR2(160) NOT NULL,
 	Author INT NOT NULL,
+<<<<<<< HEAD
 	Description VARCHAR2(2000) NOT NULL, 
+=======
+	Description VARCHAR2(160) NOT NULL,
+>>>>>>> master
 	Published DATE NOT NULL,
 	Price NUMBER(5,2) NOT NULL,
 	CONSTRAINT PK_Books PRIMARY KEY (ID)
@@ -266,6 +270,7 @@ FOR EACH ROW
 /********************
 *Add Mock Table Data*
 ********************/
+
 --INSERT INTO (ID,) VALUES (1,);
 /*
 INSERT INTO customers (username, email, passwd)
@@ -334,4 +339,5 @@ INSERT INTO Customers (ID, Username, Email, Password) VALUES (1,'Customer','cust
 --INSERT INTO FlaggedReviews (ID, Customer, Review, Flag) VALUES (1,1,1,4);
 --INSERT INTO FlaggedReviews (ID, Customer, Review, Flag) VALUES (1,1,2,2);
 commit;
+
 

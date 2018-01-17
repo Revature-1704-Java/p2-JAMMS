@@ -1,4 +1,4 @@
-# p2-JAMM
+# p2-JAMMS
 Repository for Project 2
 
 This Project is being produced via a Team of 5:
@@ -19,4 +19,19 @@ Technologies Required for Use:
   
 
 Project Overview
-We are designing an online eBook store.  It will allow Customers to search and purchase digital books as well as keep a record of purchases for each individual customer.  The store's employees will have access to a seperate part of the site where they can preside over any background aspects of their transactions.
+We are designing an online eBook store.
+It will allow Customers to search and purchase digital books as well as keep a record of purchases for each individual customer.
+The store's employees will have access to a seperate part of the site where they can preside over any background aspects of their transactions.
+
+
+Tasks By Person:
+James Widener
+  Book Search & Filter Page
+Andrew Taylor
+  Login
+Matthew Johnson
+  EC2 Tomcat and Jenkins Pipeline set up
+Matthew McCormick
+  Spring-MVC initial set up
+Samuel Yin
+  Spring-Hibernate set up

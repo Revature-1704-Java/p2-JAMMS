@@ -13,7 +13,7 @@ As a Customer, I want to view my past purchases
 As a Customer, I want to leave public reviews and ratings for books I've purchased
 As a Customer, I want to view public reviews and ratings from other Customers
 As a Customer, I want to mark a review as being helpful or flag reviews
-As a Customer, I want to sort through reviews based off time or how helpful other Customers found the review to be
+As a Customer, I want to sort through reviews based off time or how helpful they were
 
 
 As a Seller, I want all transactions to be non-refundable.
