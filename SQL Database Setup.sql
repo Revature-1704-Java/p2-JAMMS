@@ -1,7 +1,6 @@
 /*******************
 *RESET THE DATABASE*
 *******************/
-
 DROP TABLE PurchasedBooks;
 DROP TABLE Carts;
 DROP TABLE Book_Genre;
@@ -94,9 +93,7 @@ CREATE TABLE Books
 	ID INT NOT NULL,
 	Title VARCHAR2(160) NOT NULL,
 	Author INT NOT NULL,
-
 	Description VARCHAR2(2000) NOT NULL, 
-
 	Published DATE NOT NULL,
 	Price NUMBER(5,2) NOT NULL,
 	CONSTRAINT PK_Books PRIMARY KEY (ID)
@@ -315,7 +312,6 @@ INSERT INTO Discounts (ID,Book,Discount,StartDate,EndDate) VALUES (3, 7, 20.00, 
 
 
 INSERT INTO Customers (ID, Username, Email, Password) VALUES (1,'Customer','customer@email.com','Pass');
-
 
 
 INSERT INTO Reviews (ID,Customer,Book,DateAdded,Rating,Review) VALUES (1,1,5,TO_DATE('2018-01-16','yyyy-mm-dd'),5,'At Midnight All The Agents...');
