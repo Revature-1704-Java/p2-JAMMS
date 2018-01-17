@@ -28,7 +28,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CustomersSequence")
 	@SequenceGenerator(allocationSize = 1, name = "CustomersSequence", sequenceName = "seqPK_Customers")
-	@Column(name="CUSTOMER_ID")
+	@Column(name="ID")
 	public Integer getId() {
 		return id;
 	}
@@ -44,7 +44,7 @@ public class Customer {
 		this.username = username;
 	}
 	
-	@Column(name="PASSWD")
+	@Column(name="PASSWORD")
 	public String getPassword() {
 		return password;
 	}

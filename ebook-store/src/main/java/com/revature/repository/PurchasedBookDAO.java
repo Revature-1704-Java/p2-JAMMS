@@ -13,15 +13,16 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.Book;
 import com.revature.model.Customer;
+import com.revature.model.PurchasedBook;
 
-//@Repository
-//@Transactional
+@Repository
+@Transactional
 public class PurchasedBookDAO {
 	
 	
-	/*@Autowired
+	@Autowired
 	private SessionFactory sessionFactory;
-	
+	/*
 	public List<Book> findPurchasedBooks(int id) {
 		
 		Session session = sessionFactory.getCurrentSession();
@@ -30,25 +31,13 @@ public class PurchasedBookDAO {
 		return books;
 	}
 	*/
-	/*
-	 * 
-	 * public void insertCustomer() {
+	 
+	public List<PurchasedBook> getAllPurchasedBook() {
 		Session session = sessionFactory.getCurrentSession();
-		Customer c = new Customer();
-		c.setId(1);
-		c.setUsername("samy");
-		c.setEmail("s@email.com");
-		c.setPassword("asde");
-		
-		
-		int result = (int)session.save(c);
-		tx.commit();
-		session.close();
-		return result;
+		List<PurchasedBook> pbbooks = new ArrayList<>();
+		pbbooks = session.createQuery("from PurchasedBook").list();
+		return pbbooks;
 	}
-	 * 
-	 * 
-	 * 
-	 */
+	 
 	
 }

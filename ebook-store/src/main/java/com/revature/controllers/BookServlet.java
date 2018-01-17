@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.Author;
 import com.revature.model.Book;
+import com.revature.model.Customer;
 import com.revature.repository.AuthorDAO;
 import com.revature.repository.BookDAO;
 
@@ -48,6 +49,7 @@ public class BookServlet{
 		
 		return adao.getAllAuthors();
 	}
+	
 	
 	
 	@RequestMapping("/book")

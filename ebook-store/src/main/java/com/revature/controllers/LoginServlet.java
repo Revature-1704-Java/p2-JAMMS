@@ -29,7 +29,11 @@ public class LoginServlet{
      */
 
 
-	
+	@RequestMapping("/customers")
+	public @ResponseBody List<Customer> getAllCustomers(){
+		return cdao.getAllCustomer();
+		
+	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String doLogin(String username, String password) {
