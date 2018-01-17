@@ -1,7 +1,6 @@
 /*******************
 *RESET THE DATABASE*
 *******************/
-
 DROP TABLE PurchasedBooks;
 DROP TABLE Carts;
 DROP TABLE Book_Genre;
@@ -94,10 +93,7 @@ CREATE TABLE Books
 	ID INT NOT NULL,
 	Title VARCHAR2(160) NOT NULL,
 	Author INT NOT NULL,
-
-
 	Description VARCHAR2(2000) NOT NULL, 
-
 	Published DATE NOT NULL,
 	Price NUMBER(5,2) NOT NULL,
 	CONSTRAINT PK_Books PRIMARY KEY (ID)
