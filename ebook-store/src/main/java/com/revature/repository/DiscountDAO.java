@@ -10,21 +10,21 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.Customer;
-import com.revature.model.Review;
+import com.revature.model.Book;
+import com.revature.model.Discount;
 
 @Repository
 @Transactional
-public class ReviewDAO {
+public class DiscountDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public List<Review> getAllReviews(){
+	public List<Discount> getAllDiscounts(){
 		Session session = sessionFactory.getCurrentSession();
-		List<Review> reviews = new ArrayList<>();
-		reviews = session.createQuery("from Review").list();
+		List<Discount> discounts = new ArrayList<>();
+		discounts = session.createQuery("from Discount").list();
 		
-		return reviews;
+		return discounts;
 	}
 }

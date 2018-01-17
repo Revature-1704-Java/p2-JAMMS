@@ -10,21 +10,21 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.Customer;
-import com.revature.model.Review;
+import com.revature.model.Flag;
+import com.revature.model.Genre;
 
 @Repository
 @Transactional
-public class ReviewDAO {
+public class FlagDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public List<Review> getAllReviews(){
+	public List<Flag> getAllFlag(){
 		Session session = sessionFactory.getCurrentSession();
-		List<Review> reviews = new ArrayList<>();
-		reviews = session.createQuery("from Review").list();
+		List<Flag> flags = new ArrayList<>();
+		flags = session.createQuery("from Flag").list();
 		
-		return reviews;
+		return flags;
 	}
 }
