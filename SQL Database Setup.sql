@@ -94,6 +94,7 @@ CREATE TABLE Books
 	Title VARCHAR2(160) NOT NULL,
 	Author INT NOT NULL,
 	Description VARCHAR2(2000) NOT NULL, 
+
 	Published DATE NOT NULL,
 	Price NUMBER(5,2) NOT NULL,
 	CONSTRAINT PK_Books PRIMARY KEY (ID)
@@ -284,6 +285,7 @@ INSERT INTO Authors (ID, FirstName, LastName) VALUES (7,'Edgar Allen','Poe');
 
 
 
+
 INSERT INTO Books (ID,Title,Author,Description,Published,Price) VALUES (1,'Fire and Fury: Inside the Trump White House',1,'The first nine months of Donald Trump�s term were stormy, outrageous�and absolutely mesmerizing. Now, thanks to his deep access to the West Wing, bestselling author Michael Wolff tells the riveting story of how Trump launched a tenure as volatile and fiery as the man himself.',TO_DATE('2018-01-05','yyyy-mm-dd'),30.00);
 INSERT INTO Books (ID,Title,Author,Description,Published,Price) VALUES (2,'Harry Potter and the Sorcerer''s Stone',2,'Harry Potter has never been the star of a Quidditch team, scoring points while riding a broom far above the ground. He knows no spells, has never helped to hatch a dragon, and has never worn a cloak of invisibility.  All he knows is a miserable life with the Dursleys, his horrible aunt and uncle, and their abominable son, Dudley - a great big swollen spoiled bully. Harry''s room is a tiny closet at the foot of the stairs, and he hasn''t had a birthday party in eleven years.  But all that is about to change when a mysterious letter arrives by owl messenger: a letter with an invitation to an incredible place that Harry - and anyone who reads about him - will find unforgettable.  For it''s there that he finds not only friends, aerial sports, and magic in everything from classes to meals, but a great destiny that''s been waiting for him... if Harry can survive the encounter.',TO_DATE('1999-09-08','yyyy-mm-dd'),10.99);
 INSERT INTO Books (ID,Title,Author,Description,Published,Price) VALUES (3,'The Davinci Code',3,'While in Paris on business, Harvard symbologist Robert Langdon receives an urgent late-night phone call: the elderly curator of the Louvre has been murdered inside the museum. Near the body, police have found a baffling cipher. While working to solve the enigmatic riddle, Langdon is stunned to discover it leads to a trail of clues hidden in the works of Da Vinci -- clues visible for all to see -- yet ingeniously disguised by the painter.  Langdon joins forces with a gifted French cryptologist, Sophie Neveu, and learns the late curator was involved in the Priory of Sion -- an actual secret society whose members included Sir Isaac Newton, Botticelli, Victor Hugo, and Da Vinci, among others.  In a breathless race through Paris, London, and beyond, Langdon and Neveu match wits with a faceless powerbroker who seems to anticipate their every move. Unless Langdon and Neveu can deipher the labyrinthine puzzle in time, the Priory''s ancient secret -- and an explosive historical truth -- will be lost forever.',TO_DATE('2006-03-28','yyyy-mm-dd'),14.95);
@@ -313,10 +315,12 @@ INSERT INTO Discounts (ID,Book,Discount,StartDate,EndDate) VALUES (3, 7, 20.00, 
 INSERT INTO Customers (ID, Username, Email, Password) VALUES (1,'Customer','customer@email.com','Pass');
 
 
+
 INSERT INTO Reviews (ID,Customer,Book,DateAdded,Rating,Review) VALUES (1,1,5,TO_DATE('2018-01-16','yyyy-mm-dd'),5,'At Midnight All The Agents...');
 INSERT INTO Reviews (ID,Customer,Book,DateAdded,Rating,Review) VALUES (2,1,1,TO_DATE('2018-01-16','yyyy-mm-dd'),1,'$#!T Hole');
 
 
 INSERT INTO FlaggedReviews (ID, Customer, Review, Flag) VALUES (1,1,1,4);
 INSERT INTO FlaggedReviews (ID, Customer, Review, Flag) VALUES (2,1,2,2);
+
 commit;
