@@ -32,11 +32,21 @@ public class BookDAO {
 	}
 	
 	
+	public void saveBook(Book b) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(b);
+		session.close();
+	}
+	
+	public void deleteBook(Book b) {
+		
+	}
 	
 	public List<Book> getAllBooks(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Book> books = new ArrayList<>();
 		books = session.createQuery("from Book").list();
+		session.close();
 		
 		return books;
 	}
