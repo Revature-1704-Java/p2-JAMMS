@@ -1,42 +1,43 @@
-package com.jamms.model;
+package com.revature.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Carts")
-public class CartItem {
+public class Cart {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CartsSequence")
-	@SequenceGenerator(allocationSize = 1, name = "CartsSequence", sequenceName = "seqPK_Carts")
-	@Column(name = "ID")
+	
 	private Integer id;
-	@OneToOne
-	@Column(name = "Customer")
+	
 	private Customer customer;
-	@OneToOne
-	@Column(name = "Book")
+	
 	private Book book;
 
-	public CartItem() {
+	public Cart() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public CartItem(Integer id, Customer customer, Book book) {
+	public Cart(Integer id, Customer customer, Book book) {
 		super();
 		this.id = id;
 		this.customer = customer;
 		this.book = book;
 	}
-
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CartsSequence")
+	@SequenceGenerator(allocationSize = 1, name = "CartsSequence", sequenceName = "seqPK_Carts")
+	@Column(name = "ID")
 	public Integer getId() {
 		return id;
 	}
@@ -45,6 +46,8 @@ public class CartItem {
 		this.id = id;
 	}
 
+	@OneToOne
+	@JoinColumn(name = "Customer")
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -53,6 +56,8 @@ public class CartItem {
 		this.customer = customer;
 	}
 
+	@OneToOne
+	@JoinColumn(name = "Book")
 	public Book getBook() {
 		return book;
 	}

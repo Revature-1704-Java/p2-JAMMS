@@ -1,12 +1,16 @@
-package com.jamms.model;
+package com.revature.model;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -15,21 +19,18 @@ import javax.persistence.Table;
 @Table(name = "Books")
 public class Book {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BooksSequence")
-	@SequenceGenerator(allocationSize = 1, name = "BooksSequence", sequenceName = "seqPK_Books")
-	@Column(name = "ID")
+	
 	private Integer id;
-	@Column(name = "Title")
+	
 	private String title;
-	@OneToOne
-	@Column(name = "Author")
+	
+	
 	private Author author;
-	@Column(name = "Description")
+	
 	private String description;
-	@Column(name = "Published")
+	
 	private Date publishDate;
-	@Column(name = "Price")
+	
 	private Double listPrice;
 
 	public Book() {
@@ -41,12 +42,18 @@ public class Book {
 		super();
 		this.id = id;
 		this.title = title;
+		
+		
 		this.author = author;
 		this.description = description;
 		this.publishDate = publishDate;
 		this.listPrice = listPrice;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BooksSequence")
+	@SequenceGenerator(allocationSize = 1, name = "BooksSequence", sequenceName = "seqPK_Books")
+	@Column(name = "ID")
 	public Integer getId() {
 		return id;
 	}
@@ -55,6 +62,7 @@ public class Book {
 		this.id = id;
 	}
 
+	@Column(name = "Title")
 	public String getTitle() {
 		return title;
 	}
@@ -63,6 +71,8 @@ public class Book {
 		this.title = title;
 	}
 
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "Author")
 	public Author getAuthor() {
 		return author;
 	}
@@ -71,6 +81,7 @@ public class Book {
 		this.author = author;
 	}
 
+	@Column(name = "Description")
 	public String getDescription() {
 		return description;
 	}
@@ -79,6 +90,7 @@ public class Book {
 		this.description = description;
 	}
 
+	@Column(name = "Published")
 	public Date getPublishDate() {
 		return publishDate;
 	}
@@ -87,6 +99,7 @@ public class Book {
 		this.publishDate = publishDate;
 	}
 
+	@Column(name = "Price")
 	public Double getListPrice() {
 		return listPrice;
 	}
