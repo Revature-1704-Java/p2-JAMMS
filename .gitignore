@@ -1,5 +1,5 @@
 Servers/
-!**/ojdbc7.jar
+!**/ojdbc*.jar
 
 # Created by https://www.gitignore.io/api/java,maven,eclipse,netbeans,intellij,visualstudiocode
 
