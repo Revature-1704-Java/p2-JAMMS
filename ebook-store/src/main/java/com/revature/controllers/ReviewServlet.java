@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.revature.model.Genre;
 import com.revature.model.Review;
 import com.revature.repository.ReviewDAO;
 
@@ -17,9 +16,9 @@ public class ReviewServlet {
 
 	@Autowired
 	ReviewDAO revdao;
-	
+
 	@RequestMapping("/reviews")
-	public @ResponseBody List<Review> getAllReviews(){
+	public @ResponseBody List<Review> getAllReviews() {
 		return revdao.getAllReviews();
 	}
 }
