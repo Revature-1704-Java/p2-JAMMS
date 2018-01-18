@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.Book;
 import com.revature.model.Discount;
 
 @Repository
@@ -20,6 +19,7 @@ public class DiscountDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	public List<Discount> getAllDiscounts(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Discount> discounts = new ArrayList<>();

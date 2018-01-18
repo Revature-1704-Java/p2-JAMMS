@@ -23,6 +23,8 @@ import { ReviewService } from './shared/review.service';
 import { BookService } from './shared/books.service';
 import { HttpModule } from '@angular/http';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { FilterPipe } from './filter.pipe';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     NavbarEComponent,
     ReviewItemComponent,
     SubmitNewBookComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    FilterPipe,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,10 +52,12 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     HttpClientModule,
     HttpModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
+      {path: '', /*redirectTo: '/login', pathMatch: 'full'},*/component: WelcomeComponent},
+      {path: 'books', component: HomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
-      {path: 'books/:bookId', component: BookDetailComponent} 
+      {path: 'books/:bookId', component: BookItemComponent},
+      {path: 'homee', component: HomeEComponent}
     ])
   ],
   providers: [ProductService, ServerrequestsService, BookService, ReviewService],

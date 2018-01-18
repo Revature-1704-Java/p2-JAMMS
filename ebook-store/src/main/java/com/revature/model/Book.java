@@ -2,7 +2,6 @@ package com.revature.model;
 
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -21,18 +19,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "Books")
 public class Book {
 
-	
 	private Integer id;
-	
+
 	private String title;
-	
-	//@JsonIgnore
+
 	private Author author;
 
 	private String description;
-	
+
 	private Date publishDate;
-	
+
 	private Double listPrice;
 
 	public Book() {
@@ -44,8 +40,7 @@ public class Book {
 		super();
 		this.id = id;
 		this.title = title;
-		
-		
+
 		this.author = author;
 		this.description = description;
 		this.publishDate = publishDate;
@@ -73,7 +68,7 @@ public class Book {
 		this.title = title;
 	}
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Author")
 	public Author getAuthor() {
 		return author;

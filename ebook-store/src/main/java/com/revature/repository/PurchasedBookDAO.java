@@ -11,8 +11,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.Book;
-import com.revature.model.Customer;
 import com.revature.model.PurchasedBook;
 
 @Repository
@@ -22,16 +20,15 @@ public class PurchasedBookDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
-	/*
-	public List<Book> findPurchasedBooks(int id) {
-		
-		Session session = sessionFactory.getCurrentSession();
-		List<Book> books = new ArrayList<>();
-		books = session.createQuery("from PurchasedBooks P where P.Customer := custid").setParameter("custid", id).list();
-		return books;
-	}
-	*/
+
+//	public List<Book> findPurchasedBooks(int id) {
+//		Session session = sessionFactory.getCurrentSession();
+//		List<Book> books = new ArrayList<>();
+//		books = session.createQuery("from PurchasedBooks P where P.Customer := custid").setParameter("custid", id).list();
+//		return books;
+//	}
 	 
+	@SuppressWarnings("unchecked")
 	public List<PurchasedBook> getAllPurchasedBook() {
 		Session session = sessionFactory.getCurrentSession();
 		List<PurchasedBook> pbbooks = new ArrayList<>();

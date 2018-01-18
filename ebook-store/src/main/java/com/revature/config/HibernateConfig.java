@@ -7,8 +7,6 @@ import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -16,8 +14,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import oracle.jdbc.pool.OracleDataSource;
+
 
 @Configuration
 @PropertySource("classpath:hibernate.properties")
@@ -41,8 +39,7 @@ public class HibernateConfig {
 	
 	@Bean("sessionFactory")
 	public LocalSessionFactoryBean sessionFactory (DataSource ds) {
-		LocalSessionFactoryBean sessionFactoryBean =
-				new LocalSessionFactoryBean();
+		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(ds);
 		sessionFactoryBean.setPackagesToScan("com.revature.model");
 		

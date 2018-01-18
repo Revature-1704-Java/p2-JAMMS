@@ -43,6 +43,7 @@ public class BookDAO {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Book> getAllBooks(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Book> books = new ArrayList<>();

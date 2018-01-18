@@ -2,10 +2,7 @@ package com.revature.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +10,7 @@ import javax.persistence.Table;
 public class Rating {
 	private Integer id;
 	private Integer rating;
-	
+
 	public Rating(Integer id, Integer rating) {
 		super();
 		this.id = id;
@@ -26,7 +23,7 @@ public class Rating {
 	}
 
 	@Id
-	@Column(name="ID")
+	@Column(name = "ID")
 	public Integer getId() {
 		return id;
 	}
@@ -43,9 +40,5 @@ public class Rating {
 	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
-	
-	
-	
-	
-	
+
 }

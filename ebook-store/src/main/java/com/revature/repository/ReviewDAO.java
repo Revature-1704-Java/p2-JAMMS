@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.Customer;
 import com.revature.model.Review;
 
 @Repository
@@ -20,6 +19,7 @@ public class ReviewDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	public List<Review> getAllReviews(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Review> reviews = new ArrayList<>();
