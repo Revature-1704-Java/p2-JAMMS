@@ -14,7 +14,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import oracle.jdbc.pool.OracleDataSource;
 
 
@@ -40,8 +39,7 @@ public class HibernateConfig {
 	
 	@Bean("sessionFactory")
 	public LocalSessionFactoryBean sessionFactory (DataSource ds) {
-		LocalSessionFactoryBean sessionFactoryBean =
-				new LocalSessionFactoryBean();
+		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(ds);
 		sessionFactoryBean.setPackagesToScan("com.revature.model");
 		
