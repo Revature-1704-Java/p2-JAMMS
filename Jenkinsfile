@@ -17,6 +17,5 @@ node {
             }
            
                 sh 'make publish'
-            
         }
 }
