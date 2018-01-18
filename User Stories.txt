@@ -23,4 +23,4 @@ As a Seller, I want to filter the sales breakdown.
 As a Seller, I want to adjust products' costs with temporary sales.
 As a Seller, I want to delete reviews that are considered innapropriate or spam
 As a Seller, I want to add new books that I will offer
-As a Seller, I want to remove books that are no longer available
+As a Seller, I want to remove books that are no  longer available
