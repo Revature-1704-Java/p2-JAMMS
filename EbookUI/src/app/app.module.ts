@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
@@ -21,6 +21,9 @@ import { ReviewItemComponent } from './review-item/review-item.component';
 import { SubmitNewBookComponent } from './submit-new-book/submit-new-book.component';
 import { ReviewService } from './shared/review.service';
 import { BookService } from './shared/books.service';
+import { HttpModule } from '@angular/http';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,16 +39,19 @@ import { BookService } from './shared/books.service';
     HomeEComponent,
     NavbarEComponent,
     ReviewItemComponent,
-    SubmitNewBookComponent
+    SubmitNewBookComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
+    HttpModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
-      {path: 'books/:bookId', component: BookItemComponent} 
+      {path: 'books/:bookId', component: BookDetailComponent} 
     ])
   ],
   providers: [ProductService, ServerrequestsService, BookService, ReviewService],
