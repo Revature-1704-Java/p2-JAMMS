@@ -10,8 +10,8 @@ import 'rxjs/add/operator/map';
 export class BookService {
 
   private allbooksUrl = 'http://localhost:8181/books';
-  private findbookUrl = 'http://localhost:8181/book';
-
+  
+  
   //private books: Array<Book>;
 
   constructor(private http: Http) { }
@@ -20,9 +20,11 @@ export class BookService {
     return this.http.get(this.allbooksUrl).map(res => res.json());
   }
   
-  getBookById(bookId: number) {    
+  getBookById(bookId: number): Observable<Book> {    
   //  return books.find(b => b.id === bookId);
-    return this.http.get(this.findbookUrl);
+    const findbookUrl = `http://localhost:8181/books/${bookId}`;
+    console.log(findbookUrl);
+    return this.http.get(findbookUrl).map(res => res.json());
   }
 
 }
