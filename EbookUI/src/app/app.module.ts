@@ -22,6 +22,7 @@ import { SubmitNewBookComponent } from './submit-new-book/submit-new-book.compon
 import { ReviewService } from './shared/review.service';
 import { BookService } from './shared/books.service';
 import { FilterPipe } from './filter.pipe';
+import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,17 +39,20 @@ import { FilterPipe } from './filter.pipe';
     NavbarEComponent,
     ReviewItemComponent,
     SubmitNewBookComponent,
-    FilterPipe
+    FilterPipe,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', /*redirectTo: '/login', pathMatch: 'full'},*/component: HomeComponent},
+      {path: '', /*redirectTo: '/login', pathMatch: 'full'},*/component: WelcomeComponent},
+      {path: 'books', component: HomeComponent},
       {path: 'login', component: LoginComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
-      {path: 'books/:bookId', component: BookItemComponent} 
+      {path: 'books/:bookId', component: BookItemComponent},
+      {path: 'homee', component: HomeEComponent}
     ])
   ],
   providers: [ProductService, ServerrequestsService, BookService, ReviewService],
