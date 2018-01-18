@@ -10,7 +10,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.revature.model.Customer;
 import com.revature.model.Genre;
 
 @Repository
@@ -21,6 +20,7 @@ public class GenreDAO {
 	private SessionFactory sessionFactory;
 	
 	
+	@SuppressWarnings("unchecked")
 	public List<Genre> getAllGenre(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Genre> genre = new ArrayList<>();
