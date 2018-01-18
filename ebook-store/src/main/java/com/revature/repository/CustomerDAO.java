@@ -17,6 +17,9 @@ import com.revature.model.Customer;
 public class CustomerDAO {
 
 	@Autowired
+	public CustomerDAO() {}
+
+	@Autowired
 	private SessionFactory sessionFactory;
 
 	public Customer findCustomer(int id) {
