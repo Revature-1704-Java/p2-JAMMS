@@ -1,7 +1,7 @@
 <div>
   <a [routerLink]="['/books', book.id]">{{book.title}}</a><br/>
-  by {{ book.author.firstName }} {{ book.author.lastName }}<br/>
+  by {{ book.author }}<br/>
   <div *ngIf='book.discount == null; then standard else discount'></div>
-  <ng-template #standard>{{book.listPrice | currency}}</ng-template>
+  <ng-template #standard>{{book.price | currency}}</ng-template>
   <ng-template #discount>{{book.discount | currency}} <del>{{book.price | currency}}</del></ng-template>
   </div>
