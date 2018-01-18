@@ -6,6 +6,7 @@ pipeline {
             steps {
                sh 'make' 
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+                echo 'This Werx'
             }
         }
         stage('Deploy') {
