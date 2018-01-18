@@ -1,10 +1,14 @@
 node {
        stage('get tha Git') {
-        git 'https://github.com/Revature-1704-Java/p2-JAMMS.git'
+       git 'https://github.com/Revature-1704-Java/p2-JAMMS.git'
+            echo 'Whaddap binchzzz???'
     }
+        
         stage('Build') {
+            
                sh 'make' 
                 archiveArtifacts artifacts: 'ebook-store', fingerprint: true 
+            
         }
         stage('Deploy') {
             when {
@@ -14,5 +18,6 @@ node {
             }
            
                 sh 'make publish'
+            
         }
 }
