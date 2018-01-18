@@ -1,7 +1,7 @@
 node {
         stage('get tha Git') {
         git 'https://github.com/Revature-1704-Java/p2-JAMMS.git'
-            echo 'Whaddap binch?'
+            echo 'Whaddap binchz???'
     }
         
         stage('Build') {
