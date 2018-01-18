@@ -1,5 +1,4 @@
 Servers/
-!ebook-store/src/main/resources/ojdbc8-12.2.0.1.jar
 
 # Created by https://www.gitignore.io/api/java,maven,eclipse,netbeans,intellij,visualstudiocode
 
