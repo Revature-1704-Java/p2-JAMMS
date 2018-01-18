@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.revature.model.Author;
 import com.revature.model.Book;
 
 
@@ -47,7 +48,7 @@ public class BookDAO {
 		Session session = sessionFactory.getCurrentSession();
 		List<Book> books = new ArrayList<>();
 		books = session.createQuery("from Book").list();
-		//session.close();
+		//session.close()
 		
 		return books;
 	}

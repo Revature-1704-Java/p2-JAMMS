@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Books")
 public class Book {
@@ -72,6 +74,7 @@ public class Book {
 		return author;
 	}
 
+	
 	public void setAuthor(Author author) {
 		this.author = author;
 	}

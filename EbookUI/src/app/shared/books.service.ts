@@ -1,21 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
+//import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class BookService {
 
-  constructor() { }
+  private allbooksUrl = 'http://localhost:8181/books';
   
-  getBooks(): Book[] {
-    return books;
+  
+  //private books: Array<Book>;
+
+  constructor(private http: Http) { }
+  
+  getBooks():Observable<any> {
+    return this.http.get(this.allbooksUrl).map(res => res.json());
   }
   
-  getBookById(bookId: number) {    
-    return books.find(b => b.id === bookId);
+  getBookById(bookId: number): Observable<Book> {    
+  //  return books.find(b => b.id === bookId);
+    const findbookUrl = `http://localhost:8181/books/${bookId}`;
+    console.log(findbookUrl);
+    return this.http.get(findbookUrl).map(res => res.json());
   }
 
 }
 
+/*
 const books = [
   {
     id: 1,
@@ -90,3 +104,4 @@ const books = [
     discount: null
   }
 ]
+*/

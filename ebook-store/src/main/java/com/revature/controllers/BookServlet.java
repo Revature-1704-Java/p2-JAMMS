@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +18,7 @@ import com.revature.repository.BookDAO;
 
 @Controller
 @RequestMapping
+@CrossOrigin()
 public class BookServlet {
 	// private static final long serialVersionUID = 1L;
 
@@ -24,14 +27,6 @@ public class BookServlet {
 
 	@Autowired
 	private AuthorDAO adao;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	@RequestMapping("/hello")
-	public String hello() {
-		return "Hello from Spring Boot!";
-	}
 
 	@RequestMapping("/books")
 	public @ResponseBody List<Book> getBookList() {
@@ -45,10 +40,11 @@ public class BookServlet {
 		return adao.getAllAuthors();
 	}
 
-	@RequestMapping("/book")
-	public @ResponseBody Book getBook() {
+	@RequestMapping("/books/{id}")
+	public @ResponseBody Book getBook(@PathVariable("id") Integer id) {
 
-		return bdao.findBook(1);
+		return bdao.findBook(id);
+
 	}
 
 }
