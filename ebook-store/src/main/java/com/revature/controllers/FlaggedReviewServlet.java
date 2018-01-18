@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.FlaggedReview;
-import com.revature.model.Genre;
 import com.revature.repository.FlaggedReviewDAO;
 
 @Controller
@@ -16,9 +15,9 @@ import com.revature.repository.FlaggedReviewDAO;
 public class FlaggedReviewServlet {
 	@Autowired
 	FlaggedReviewDAO frdao;
-	
+
 	@RequestMapping("/flagreviews")
-	public @ResponseBody List<FlaggedReview> getAllGenres(){
+	public @ResponseBody List<FlaggedReview> getAllGenres() {
 		return frdao.getAllFlagReviews();
 	}
 }
