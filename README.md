@@ -33,5 +33,6 @@ Matthew Johnson
   EC2 Tomcat and Jenkins Pipeline set up
 Matthew McCormick
   Spring-MVC initial set up
+  Angular Research
 Samuel Yin
   Spring-Hibernate set up
