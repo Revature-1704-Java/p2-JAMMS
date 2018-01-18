@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit{
   constructor(private rout: Router,private logins: ServerrequestsService ) { }
 
   ngOnInit() {
-    if (sessionStorage.getItem('logged')==='true'){
+    if (sessionStorage.getItem('login')==='true'){
       this.rout.navigateByUrl('/home');
     }
   }
