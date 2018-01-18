@@ -1,13 +1,14 @@
-pipeline {
-    agent any
-
-    stages {
+node {
+        stage('get tha Git') {
+        git 'https://github.com/Revature-1704-Java/p2-JAMMS.git'
+            echo 'Whaddap binch?'
+    }
+        
         stage('Build') {
-            steps {
+            
                sh 'make' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
-                echo 'Whaddap binch??'
-            }
+                archiveArtifacts artifacts: 'ebook-store', fingerprint: true 
+            
         }
         stage('Deploy') {
             when {
@@ -15,10 +16,10 @@ pipeline {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS' 
               }
             }
-            steps {
+           
                 sh 'make publish'
-            }
+            
         }
-    }
 }
-        
+     
+       
