@@ -2,9 +2,14 @@
   <img src="http://placehold.it/128x192">
   <figcaption class="figure-caption">
     <h5>
-      <a [routerLink]="['\products', product.id]">{{product.title}}</a>
-      <span>{{product.price | currency}}</span>
+      <a [routerLink]="['/products', book.id]">{{book.title}}</a>
+      <br/>
+      <span>
+        <div *ngIf='book.discount == null; then standard else discount'></div>
+        <ng-template #standard>{{book.price | currency}}</ng-template>
+        <ng-template #discount>{{book.discount | currency}} <del>{{book.price | currency}}</del></ng-template>
+      </span>
     </h5>
-    <p>{{product.author}}</p>
+    <p>{{book.author}}</p>
   </figcaption>
 </figure>

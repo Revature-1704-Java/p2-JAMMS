@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../shared/product';
+import { Book } from '../shared/book';
 
 @Component({
   selector: 'app-product-item',
@@ -8,6 +8,8 @@ import { Product } from '../shared/product';
 })
 export class ProductItemComponent {
 
-  @Input() product: Product;
+  @Input() book: Book;
+
+  contructor() {}
 
 }
