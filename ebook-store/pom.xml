@@ -39,18 +39,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -140,6 +128,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>12.2.0.1</version>
 		</dependency>
 	</dependencies>
 </project>
