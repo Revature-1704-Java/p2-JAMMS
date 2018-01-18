@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.revature.model.Book_Genre;
-import com.revature.model.Cart;
 
 @Repository
 @Transactional
@@ -22,6 +21,7 @@ public class Book_GenreDAO {
 	
 	//functions to implement: given an book id, return all genres
 	
+	@SuppressWarnings("unchecked")
 	public List<Book_Genre> getAllBookGenre(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Book_Genre> bookgenre = new ArrayList<>();

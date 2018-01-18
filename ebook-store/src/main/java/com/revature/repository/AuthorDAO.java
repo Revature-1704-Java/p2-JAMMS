@@ -8,12 +8,9 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.revature.model.Author;
-import com.revature.model.Book;
 
 
 @Repository
@@ -23,6 +20,7 @@ public class AuthorDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	public List<Author> getAllAuthors(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Author> authors = new ArrayList<>();

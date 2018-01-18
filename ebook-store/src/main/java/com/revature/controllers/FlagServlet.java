@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.model.Flag;
-import com.revature.model.Genre;
 import com.revature.repository.FlagDAO;
 
 @Controller
@@ -17,10 +16,10 @@ public class FlagServlet {
 
 	@Autowired
 	FlagDAO fdao;
-	
+
 	@RequestMapping("/flags")
-	public @ResponseBody List<Flag> getAllGenres(){
+	public @ResponseBody List<Flag> getAllGenres() {
 		return fdao.getAllFlag();
 	}
-	
+
 }

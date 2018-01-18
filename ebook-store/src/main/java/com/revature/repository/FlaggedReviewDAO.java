@@ -19,6 +19,7 @@ public class FlaggedReviewDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	public List<FlaggedReview> getAllFlagReviews(){
 		Session session = sessionFactory.getCurrentSession();
 		List<FlaggedReview> flaggedreviews = new ArrayList<>();

@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.revature.model.Cart;
-import com.revature.model.Genre;
 
 @Repository
 @Transactional
@@ -21,6 +20,7 @@ public class CartDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	public List<Cart> getAllCartItems(){
 		Session session = sessionFactory.getCurrentSession();
 		List<Cart> cartitems = new ArrayList<>();
