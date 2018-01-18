@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../shared/book';
-import { BookService } from '../shared/books.service';
+import { Product } from '../shared/product';
+import { ProductService } from '../shared/product.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,18 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
 
-  book: Book;
-  yearPublished: number;
+  product: Product;
 
-  constructor(private bookService: BookService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-   // this.book = this.bookService.getBookById(bookId);
-    //this.yearPublished = this.book.publishedDate.getFullYear();
-    let bookId: number = parseInt(this.route.snapshot.params['productId']);
-    this.bookService.getBookById(bookId).subscribe((response) => {
-      this.book = response;
-    });
+    let prodId: number = parseInt(this.route.snapshot.params['productId']);
+    this.product = this.productService.getProductById(prodId);
   }
 
 }

@@ -15,10 +15,10 @@ export class HomeEComponent implements OnInit {
   
   reviews: Review[] = [];
   
-  constructor( private reviewService: ReviewService) { }
+  constructor(private bookService: BookService, private reviewService: ReviewService) { }
 
   ngOnInit() {
-    //this.books = this.bookService.getBooks();
+    this.books = this.bookService.getBooks();
     this.reviews = this.reviewService.getReviews();
   }
 

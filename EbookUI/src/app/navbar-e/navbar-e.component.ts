@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-e.component.css']
 })
 export class NavbarEComponent implements OnInit {
-  title = 'JAMMStore'
+  title = 'JAMMStore';
   constructor() { }
 
   ngOnInit() {

@@ -1,35 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
-//import { HttpClient } from '@angular/common/http';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-
 
 @Injectable()
 export class BookService {
 
-  private allbooksUrl = 'http://localhost:8181/books';
+  constructor() { }
   
-  
-  //private books: Array<Book>;
-
-  constructor(private http: Http) { }
-  
-  getBooks():Observable<any> {
-    return this.http.get(this.allbooksUrl).map(res => res.json());
+  getBooks(): Book[] {
+    return books;
   }
   
-  getBookById(bookId: number): Observable<Book> {    
-  //  return books.find(b => b.id === bookId);
-    const findbookUrl = `http://localhost:8181/books/${bookId}`;
-    console.log(findbookUrl);
-    return this.http.get(findbookUrl).map(res => res.json());
+  getBookById(bookId: number) {    
+    return books.find(b => b.id === bookId);
   }
 
 }
 
-/*
 const books = [
   {
     id: 1,
@@ -51,7 +37,7 @@ const books = [
   },
   {
     id: 3,
-    title: 'The DaVinci Code',
+    title: 'The Davinci Code',
     author: 'Dan Brown',
     description: 'While in Paris on business, Harvard symbologist Robert Langdon receives an urgent late-night phone call: the elderly curator of the Louvre has been murdered inside the museum. Near the body, police have found a baffling cipher. While working to solve the enigmatic riddle, Langdon is stunned to discover it leads to a trail of clues hidden in the works of Da Vinci -- clues visible for all to see -- yet ingeniously disguised by the painter.  Langdon joins forces with a gifted French cryptologist, Sophie Neveu, and learns the late curator was involved in the Priory of Sion -- an actual secret society whose members included Sir Isaac Newton, Botticelli, Victor Hugo, and Da Vinci, among others.  In a breathless race through Paris, London, and beyond, Langdon and Neveu match wits with a faceless powerbroker who seems to anticipate their every move. Unless Langdon and Neveu can deipher the labyrinthine puzzle in time, the Priory\'s ancient secret -- and an explosive historical truth -- will be lost forever.',
     publishedDate: new Date('2006-03-28'),
@@ -104,4 +90,3 @@ const books = [
     discount: null
   }
 ]
-*/
