@@ -16,9 +16,12 @@ export class ProductDetailComponent implements OnInit {
   constructor(private bookService: BookService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+   // this.book = this.bookService.getBookById(bookId);
+    //this.yearPublished = this.book.publishedDate.getFullYear();
     let bookId: number = parseInt(this.route.snapshot.params['productId']);
-    this.book = this.bookService.getBookById(bookId);
-    this.yearPublished = this.book.publishedDate.getFullYear();
+    this.bookService.getBookById(bookId).subscribe((response) => {
+      this.book = response;
+    });
   }
 
 }

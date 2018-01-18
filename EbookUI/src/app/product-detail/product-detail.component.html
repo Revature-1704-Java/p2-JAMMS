@@ -1,15 +1,15 @@
 <figure class="figure">
   <img src="http://placehold.it/256x384" class="figure-img img-fluid-rounded">
   <figcaption class="figure-caption">
-    <h4>{{book.title}}</h4>
+    <h4>{{book?.title}}</h4>
     <h5>
-      <div *ngIf='book.discount == null; then standard else discount'></div>
-      <ng-template #standard>{{book.price | currency}}</ng-template>
-      <ng-template #discount>{{book.discount | currency}} <del>{{book.price | currency}}</del></ng-template>
+      <div *ngIf='book?.discount == null; then standard else discount'></div>
+      <ng-template #standard>{{book?.price | currency}}</ng-template>
+      <ng-template #discount>{{book?.discount | currency}} <del>{{book?.price | currency}}</del></ng-template>
     </h5>
-    <h5>{{book.author}}</h5>
+    <h5>{{book?.author}}</h5>
     <h5>Year published: {{yearPublished}}</h5>
-    <h6>{{book.description}}</h6>
+    <h6>{{book?.description}}</h6>
     <!--<h5>Categories: 
       <ul>
         <li *ngFor="let category of product.categories">{{category}}</li>
