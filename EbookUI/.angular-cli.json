@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "C:/Users/Andrew Taylor/eclipse-workspace/p2-JAMMS/ebook-store/src/main/resources/static",
+      "outDir": "../ebook-store/src/main/resources/static",
       "assets": [
         "assets",
         "favicon.ico"
