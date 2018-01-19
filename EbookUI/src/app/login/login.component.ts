@@ -7,18 +7,18 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-  public email: String;
+  public username: String;
   public password: String;
   public successful: String;
   constructor(private rout: Router,private logins: ServerrequestsService ) { }
-
   ngOnInit() {
     if (sessionStorage.getItem('login')==='true'){
       this.rout.navigateByUrl('/home');
     }
   }
   public login(){
-    this.logins.Login(this.email, this.password).subscribe(response=>{
+    console.log("hello");
+    this.logins.Login(this.username, this.password).subscribe(response=>{
       if (response['customerid']==0){
         this.successful = 'invalid login credentials';
         

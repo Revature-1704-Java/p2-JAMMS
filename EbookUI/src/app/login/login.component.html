@@ -1,5 +1,5 @@
 <div class="login-page">
-  <div class="form" ng-submit="login()">
+  <div class="form">
     <form class="register-form">
       <input type="text" placeholder="name"/>
       <input type="password" placeholder="password"/>
@@ -9,9 +9,10 @@
     </form>
     <form class="login-form">
       <label for="email">Email</label>
-      <input [(ngModel)] = "email" type="text" placeholder="username" name="email"/>
+      <input [(ngModel)] = "username" type="text" placeholder="username" name="email"/>
       <input [(ngModel)] = "password" type="password" placeholder="password" name="password"/>
-      <button>login</button>
+      <button (click)="login()">login</button>
+      <p>new</p>
       <p class="message">Not registered? <a href="#">Create an account</a></p>
     </form>
   </div>

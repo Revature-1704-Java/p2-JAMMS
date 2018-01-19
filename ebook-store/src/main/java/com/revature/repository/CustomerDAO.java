@@ -21,7 +21,7 @@ public class CustomerDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-
+	
 	public Customer findCustomer(int id) {
 		Session session = sessionFactory.getCurrentSession();
 
@@ -31,11 +31,11 @@ public class CustomerDAO {
 		}
 		return c;
 	}
-
+	
 	public Customer findCustomer(String username) {
 		Session session = sessionFactory.getCurrentSession();
-
-		Customer c = session.get(Customer.class, username);
+		String hql = "Select from Customer c where c.id="+username;
+		Customer c = (Customer) session.createQuery(hql);
 		if (c == null) {
 			System.out.println("Customer is null");
 		}
@@ -52,3 +52,4 @@ public class CustomerDAO {
 	}
 
 }
+ 

@@ -21,9 +21,6 @@ export class HomeComponent implements OnInit {
   term: any;
   
   ngOnInit() {
-    //if (sessionStorage.getItem('login')===null || sessionStorage.getItem('login')==='false'){
-    //  this.router.navigateByUrl('login');
-    // }
     this.getBooks();
     
    
