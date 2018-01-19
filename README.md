@@ -6,7 +6,7 @@ This Project is being produced via a Team of 5:
   Andrew Taylor,
   Matt Johnson,
   Matthew McCormick (Team Leader),
-  Samuel Yin,
+  Samuel Yin
 
 
 Technologies Required for Use:
