@@ -2,10 +2,10 @@
 Repository for Project 2
 
 This Project is being produced via a Team of 5:
-  James Widener
-  Andrew Taylor
-  Matt Johnson
-  Matthew McCormick (Team Leader)
+  James Widener,
+  Andrew Taylor,
+  Matt Johnson,
+  Matthew McCormick (Team Leader),
   Samuel Yin
 
 
@@ -35,4 +35,4 @@ Matthew McCormick
   Spring-MVC initial set up
   Angular Research
 Samuel Yin
-  Spring-Hibernate set up
+  Spring-Hibernate set up 
