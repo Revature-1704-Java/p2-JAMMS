@@ -22,10 +22,10 @@ public class CustomerDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public Customer findCustomer(int id) {
+	public Customer findCustomer(String username, String password) {
 		Session session = sessionFactory.getCurrentSession();
 
-		Customer c = session.get(Customer.class, id);
+		Customer c = session.get(Customer.class, username);
 		if (c == null) {
 			System.out.println("Customer is null");
 		}
