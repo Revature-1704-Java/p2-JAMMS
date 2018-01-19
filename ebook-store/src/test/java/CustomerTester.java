@@ -11,7 +11,7 @@ public class CustomerTester {
 	public void printCustomers() {
 		System.out.println(customerDAO);
 
-		Customer c = customerDAO.findCustomer(1);
+		Customer c = customerDAO.findCustomer("Customer", "Password");
 		System.out.println(c.toString());
 	}
 }
