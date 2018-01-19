@@ -22,6 +22,7 @@ import { SubmitNewBookComponent } from './submit-new-book/submit-new-book.compon
 import { ReviewService } from './shared/review.service';
 import { BookService } from './shared/books.service';
 import { FilterPipe } from './filter.pipe';
+import { HttpModule } from '@angular/http';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MybooksComponent } from './mybooks/mybooks.component';
 @NgModule({
@@ -48,6 +49,7 @@ import { MybooksComponent } from './mybooks/mybooks.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpModule, 
     RouterModule.forRoot([
       {path: '', /*redirectTo: '/login', pathMatch: 'full'},*/component: WelcomeComponent},
       {path: 'books', component: HomeComponent},

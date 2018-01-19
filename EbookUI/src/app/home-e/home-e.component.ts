@@ -18,7 +18,7 @@ export class HomeEComponent implements OnInit {
   constructor(private bookService: BookService, private reviewService: ReviewService) { }
 
   ngOnInit() {
-    this.books = this.bookService.getBooks();
+    //this.books = this.bookService.getBooks();
     this.reviews = this.reviewService.getReviews();
   }
 
