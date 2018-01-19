@@ -10,5 +10,12 @@
         <li *ng For="let category of product.categories">{{category}}</li>
       </ul>
     </h5>-->
+    <form #productPurchaseForm="ngForm" 
+      (ngSubmit)="onSubmit()">
+      <input type="submit" 
+        class="btn btn-success" 
+        value="Purchase Book"
+        [disabled]="isDisabled()"/>
+    </form>
   </figcaption>
 </figure>

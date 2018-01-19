@@ -23,4 +23,15 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
+  submitted = false;
+
+  onSubmit() {
+    this.submitted = true;
+    this.bookService.purchaseBook(this.product.id).subscribe((response) => {
+      console.log(response);
+    });
+  }
+
+  isDisabled() { return this.submitted; }
+
 }

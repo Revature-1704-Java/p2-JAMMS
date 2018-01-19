@@ -13,6 +13,7 @@ import com.revature.model.Author;
 import com.revature.model.Book;
 import com.revature.repository.AuthorDAO;
 import com.revature.repository.BookDAO;
+import com.revature.repository.PurchasedBookDAO;
 
 @Controller
 @RequestMapping
@@ -25,6 +26,9 @@ public class BookServlet {
 
 	@Autowired
 	private AuthorDAO adao;
+	
+	@Autowired
+	private PurchasedBookDAO pdao;
 
 	@RequestMapping("/books")
 	public @ResponseBody List<Book> getBookList() {
@@ -44,5 +48,14 @@ public class BookServlet {
 		return bdao.findBook(id);
 
 	}
-
+	
+	@RequestMapping("/purchase/{id}")
+	public @ResponseBody String purchaseBook(@PathVariable("id") Integer id) {
+		System.out.println("Purchase Book");
+		Book book = bdao.findBook(id);
+		System.out.println(book.toString());
+		pdao.addBookToPurchases(book);
+		System.out.println("Book Purchased");
+		return "Book Purchased";
+	}
 }
