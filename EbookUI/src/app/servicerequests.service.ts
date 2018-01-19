@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {Http} from '@angular/http';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { Router } from '@angular/router';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import {Customer} from './shared/customer'
+import { Customer } from './shared/customer';
 import 'rxjs/add/operator/map';
+
 @Injectable()
 export class ServerrequestsService {
   private login = new BehaviorSubject<boolean>(false);
@@ -17,25 +18,19 @@ export class ServerrequestsService {
     this.login.next(false);
     this.rout.navigateByUrl('/login');
   }
-  public Login(username: String, password: String): Observable<Customer>{
-    console.log(username);
-    console.log(password);
-    let user = {username, password};
-    let url = `http://localhost:8181/logins/${username}/${password}`;
-    let login = this.http.get(url).map(res=> res.json());
-  login.subscribe(response =>{
-    this.customer = response;
-    if (this.customer==null){
-      console.log('error');
-      this.rout.navigateByUrl('/login');
-    }
-    else{
-    console.log('success');
-    sessionStorage.setItem('ID', String(response['id']));
-    this.rout.navigateByUrl('');
-    }
-  }
-);
-  return login;
+  public Login(loginName: string, loginPass: string): Observable<Customer>{
+    console.log(loginName);
+    console.log(loginPass);
+    let url = `http://localhost:8181/login`;
+
+    let body = new URLSearchParams();
+    body.set('username', loginName);
+    body.set('password', loginPass);
+
+    console.log(body);
+    console.log(JSON.stringify(body));
+    console.log(body.toString());
+    // return this.http.post(url, JSON.stringify(body)).map(res => res.json());
+    return this.http.post(url, body.toString()).map(res => res.json());
   }
 }

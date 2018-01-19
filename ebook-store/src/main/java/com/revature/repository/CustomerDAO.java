@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,14 +20,17 @@ public class CustomerDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Customer findCustomer(String username, String password) {
 		Session session = sessionFactory.getCurrentSession();
-
-		Customer c = session.get(Customer.class, username);
-		if (c == null) {
-			System.out.println("Customer is null");
-		}
-		return c;
+		
+		String hql = "FROM Customer c WHERE c.username LIKE :username and c.password like :password";
+		Query query = session.createQuery(hql);
+		query.setParameter("username", username);
+		query.setParameter("password", password);
+		List<Customer> customers = query.list();
+		
+		return customers.size()>0?customers.get(0):null;
 	}
 
 	public Customer findCustomer(String username) {

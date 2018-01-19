@@ -36,7 +36,7 @@ public class Customer {
 		this.id = id;
 	}
 	
-	@Column(name="USERNAME")
+	@Column(name="USERNAME", unique=true)
 	public String getUsername() {
 		return username;
 	}

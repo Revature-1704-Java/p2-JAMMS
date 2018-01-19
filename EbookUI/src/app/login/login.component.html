@@ -8,16 +8,12 @@
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
     <form class="login-form">
-<<<<<<< HEAD
-      <label for="email">Email</label>
-      <input [(ngModel)] = "username" type="text" placeholder="username" name="email"/>
-=======
-      <input [(ngModel)] = "username" type="text" placeholder="username" name="username"/>
->>>>>>> 963df537d945615bdf4facbc8f4ba2b63a81552e
-      <input [(ngModel)] = "password" type="password" placeholder="password" name="password"/>
+      <input [(ngModel)]="username" type="text" placeholder="username" name="username" value="Customer"/>
+      <input [(ngModel)]="password" type="password" placeholder="password" name="password" value="Pass"/>
       <button (click)="login()">login</button>
       <p>new</p>
       <p class="message">Not registered? <a href="#">Create an account</a></p>
     </form>
+    <p>{{successful}}</p>
   </div>
 </div>
