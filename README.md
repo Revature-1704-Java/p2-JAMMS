@@ -35,4 +35,4 @@ Matthew McCormick
   Spring-MVC initial set up
   Angular Research
 Samuel Yin
-  Spring-Hibernate set up
+  Spring-Hibernate set up 
