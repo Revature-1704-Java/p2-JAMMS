@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductService } from './shared/product.service';
@@ -37,6 +38,7 @@ import { MybooksComponent } from './mybooks/mybooks.component';
     LoginComponent,
     BookItemComponent,
     BookModificationComponent,
+    BookDetailComponent,
     HomeEComponent,
     NavbarEComponent,
     ReviewItemComponent,
