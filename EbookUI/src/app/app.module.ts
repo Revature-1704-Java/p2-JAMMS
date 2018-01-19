@@ -56,6 +56,7 @@ import { MybooksComponent } from './mybooks/mybooks.component';
       {path: '', /*redirectTo: '/login', pathMatch: 'full'},*/component: WelcomeComponent},
       {path: 'books', component: HomeComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'mybooks', component: MybooksComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
       {path: 'books/:bookId', component: BookItemComponent},
       {path: 'homee', component: HomeEComponent}
