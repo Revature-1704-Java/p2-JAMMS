@@ -10,18 +10,18 @@ export class BookService {
   constructor(private http: Http) { }
   
   getBooks(): Observable<any> {
-    return this.http.get('http://localhost:8181/books/').map(res => res.json());
+    return this.http.get('http://52.23.192.48:8181/books/').map(res => res.json());
   }
   
   getBookById(bookId: number) : Observable<Book>{  
     console.log(bookId);
-    const url = `http://localhost:8181/books/${bookId}`;   
+    const url = `http://52.23.192.48:8181/books/${bookId}`;   
     return this.http.get(url).map(res => res.json());
   }
   
   purchaseBook(bookId: number) {  
     console.log('Purchased Book: ' + bookId);
-    const url = `http://localhost:8181/purchase/${bookId}`;
+    const url = `http://52.23.192.48:8181/purchase/${bookId}`;
     return this.http.get(url).map(res => res.json());
   }
 

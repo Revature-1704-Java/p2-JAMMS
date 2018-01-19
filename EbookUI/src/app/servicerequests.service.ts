@@ -21,7 +21,7 @@ export class ServerrequestsService {
   public Login(loginName: string, loginPass: string): Observable<Customer>{
     console.log(loginName);
     console.log(loginPass);
-    let url = `http://localhost:8181/login`;
+    let url = `http://52.23.192.48:8181/login`;
 
     let body = new URLSearchParams();
     body.set('username', loginName);
