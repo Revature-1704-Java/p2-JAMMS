@@ -3,8 +3,8 @@
   <figcaption class="figure-caption">
     <h5>
       <a [routerLink]="['/products', product.id]">{{product.title}}</a>
-      <br><span>{{product.price | currency}}</span>
+      <br><span>{{product.listPrice | currency}}</span>
     </h5>
-    <p>{{product.author}}</p>
+    <p>{{product.author.firstName}} {{product.author.lastName}}</p>
   </figcaption>
 </figure>

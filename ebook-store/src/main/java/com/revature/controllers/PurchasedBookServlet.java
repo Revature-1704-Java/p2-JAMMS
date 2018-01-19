@@ -21,4 +21,10 @@ public class PurchasedBookServlet {
 	public @ResponseBody List<PurchasedBook> getAllPurchasedBooks(){
 		return pbdao.getAllPurchasedBook();
 	}
+	
+//	@RequestMapping("/wasBookPurchased")
+//	public @ResponseBody Boolean wasBookPurchased() {
+//		
+//	}
+	
 }

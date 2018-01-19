@@ -17,25 +17,32 @@ import com.revature.model.Customer;
 public class CustomerDAO {
 
 	@Autowired
-	public CustomerDAO() {}
-
-	@Autowired
 	private SessionFactory sessionFactory;
-	
-	public Customer findCustomer(int id) {
+
+	public Customer findCustomer(String username, String password) {
 		Session session = sessionFactory.getCurrentSession();
 
-		Customer c = session.get(Customer.class, id);
+		Customer c = session.get(Customer.class, username);
 		if (c == null) {
 			System.out.println("Customer is null");
 		}
 		return c;
 	}
-	
+
 	public Customer findCustomer(String username) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "Select from Customer c where c.id="+username;
+		String hql = "Select from Customer c where c.id=" + username;
 		Customer c = (Customer) session.createQuery(hql);
+		if (c == null) {
+			System.out.println("Customer is null");
+		}
+		return c;
+	}
+
+	public Customer getCustomerById(int id) {
+		Session session = sessionFactory.getCurrentSession();
+
+		Customer c = session.get(Customer.class, id);
 		if (c == null) {
 			System.out.println("Customer is null");
 		}
@@ -52,4 +59,3 @@ public class CustomerDAO {
 	}
 
 }
- 
